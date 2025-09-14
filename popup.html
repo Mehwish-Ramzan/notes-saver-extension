@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notes Saver Plus</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="icon" id="darkToggleWrap" data-tooltip="Dark mode">
+        <img id="darkModeToggle" src="toggle-off.png" alt="Toggle Dark Mode" />
+      </div>
+      <div class="icon" id="settingsWrap" data-tooltip="Settings">
+        <img id="settingsIcon" src="setting.png" alt="Settings" />
+      </div>
+    </div>
+
+    <h1>Notes Saver</h1>
+
+    <!-- Note input with Save button inside textarea -->
+    <div class="note-input-container">
+      <textarea id="noteInput" placeholder="Write your note here"></textarea>
+      <button id="saveBtn">Save</button>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search notes..." />
+
+    <h3>Saved Notes</h3>
+    <div id="notesWrap">
+      <ul id="notesList"></ul>
+      <div id="emptyPlaceholder">No notes saved</div>
+    </div>
+
+    <div class="bottom-buttons">
+      <button id="recycleBinBtn"> Recycle Bin</button>
+      <button id="lockedNotesBtn"> Locked Notes (0)</button>
+    </div>
+
+    <!-- Full Note Modal -->
+    <div id="modalOverlay" class="hidden">
+      <div id="modal">
+        <h3 id="modalTitle">Note</h3>
+        <pre id="modalContent" class="modalText"></pre>
+
+        <div class="modalActions">
+          <button id="modalUnlockBtn" class="hidden">Unlock</button>
+          <button id="modalEditBtn">Edit</button>
+          <button id="modalDeleteBtn">Delete</button>
+          <button id="modalCloseBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recycle Bin Modal -->
+    <div id="recycleModalOverlay" class="hidden">
+      <div id="recycleModal">
+        <h3>Recycle Bin</h3>
+        <div id="recycleListWrap">
+          <ul id="recycleList"></ul>
+          <div id="recycleEmpty">No deleted notes</div>
+        </div>
+        <div class="modalActions">
+          <button id="emptyRecycleBtn">Empty Recycle Bin</button>
+          <button id="closeRecycleBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Locked Notes Modal -->
+    <div id="lockedModalOverlay" class="hidden">
+      <div id="lockedModal">
+        <h3>Locked Notes</h3>
+        <div id="lockedListWrap">
+          <ul id="lockedList"></ul>
+          <div id="lockedEmpty">No locked notes</div>
+        </div>
+        <div class="modalActions">
+          <button id="closeLockedBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings modal (in-popup) for PIN set/remove -->
+    <div id="settingsModalOverlay" class="hidden">
+      <div id="settingsModal">
+        <h3>Settings (PIN)</h3>
+        <p>Set a PIN to protect locked notes in the popup UI.</p>
+
+        <input type="password" id="popupPinInput" placeholder="Enter new PIN" />
+        <div style="margin-top:8px;">
+          <button id="setPinBtn">Set PIN</button>
+          <button id="clearPinBtn">Remove PIN</button>
+        </div>
+        <p id="popupPinStatus" style="margin-top:8px;color:#444"></p>
+
+        <div class="modalActions" style="margin-top:6px;">
+          <button id="closeSettingsBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

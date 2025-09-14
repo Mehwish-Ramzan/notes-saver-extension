@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Notes Saver Plus",
+  "version": "1.1",
+  "description": "Save notes with tags, dark mode, search/filter, edit, copy, and auto-sort features.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "clipboardWrite",
+    "alarms",
+    "notifications"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons8-notes-80.png",
+      "48": "icons8-notes-80.png",
+      "128": "icons8-notes-80.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

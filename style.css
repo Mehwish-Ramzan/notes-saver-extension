@@ -1,0 +1,103 @@
+/* general */
+body {
+  font-family: Arial, sans-serif;
+  padding: 12px;
+  width: 400px;
+  background-color: #f5f5f5;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* top bar icons + tooltip */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.icon { position: relative; width: 30px; height: 30px; cursor: pointer; }
+.icon img { width: 100%; height: 100%; display: block; user-select: none; }
+.icon[data-tooltip]::after,
+.icon[data-tooltip]::before { opacity: 0; pointer-events: none; transition: opacity 120ms ease; }
+.icon[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  white-space: nowrap; background: #222; color: #fff; padding: 6px 8px;
+  font-size: 12px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 30;
+}
+.icon[data-tooltip]::before {
+  content: ""; position: absolute; top: calc(100% + 2px); left: 50%; transform: translateX(-50%);
+  width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent;
+  border-top: 6px solid #222; z-index: 30;
+}
+.icon[data-tooltip]:hover::after, .icon[data-tooltip]:hover::before,
+.icon.tooltip-open::after, .icon.tooltip-open::before { opacity: 1; }
+
+/* header */
+h1 { margin: 4px 0 10px 0; font-size: 22px; }
+
+/* note input */
+.note-input-container { position: relative; width: 100%; margin-bottom: 8px; }
+#noteInput { width: 100%; height: 140px; padding: 10px 80px 10px 10px; resize: vertical;
+  border: 2px solid rgb(135, 57, 237); border-radius: 6px; box-sizing: border-box; font-size: 14px;
+  overflow-y: auto; white-space: pre-wrap;
+}
+#saveBtn { position: absolute; right: 10px; bottom: 10px; padding: 8px 12px;
+  background-color: rgb(142, 76, 229); color: white; border: none; cursor: pointer; border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+#saveBtn:hover { background-color: rgb(95, 27, 183); }
+
+/* search */
+#searchInput { width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; }
+
+/* notes area */
+#notesWrap { width: 100%; max-height: 260px; overflow-y: auto; padding-right: 6px; margin-bottom: 10px; }
+#emptyPlaceholder { display: none; text-align: center; color: #666; padding: 8px; }
+
+/* list */
+ul { list-style: none; padding: 0; margin: 0; }
+li { background-color: #fff; padding: 8px; margin-bottom: 8px; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; }
+.noteText { flex: 1; margin-right: 8px; max-height: 70px; overflow: hidden; text-overflow: ellipsis; white-space: pre-wrap; word-break: break-word; font-size: 14px; line-height: 1.2; }
+.noteActions { display: flex; gap: 8px; align-items: center; }
+.noteActions img { width: 20px; height: 20px; cursor: pointer; }
+.lockIcon { width: 18px; height: 18px; opacity: 0.95; }
+
+/* bottom buttons (recycle + locked) */
+.bottom-buttons { display: flex; gap: 8px; margin-top: 6px; }
+.bottom-buttons button { flex: 1; padding: 8px; border-radius: 6px; border: none; cursor: pointer; color: white; }
+#recycleBinBtn { background: #ff6b6b; } #recycleBinBtn:hover { background: #e04f4f; }
+#lockedNotesBtn { background: #6b6bff; } #lockedNotesBtn:hover { background: #4a4aff; }
+
+/* hidden + overlay */
+.hidden { display: none !important; }
+#modalOverlay, #recycleModalOverlay, #lockedModalOverlay, #settingsModalOverlay {
+  position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); z-index: 10000;
+}
+#modal, #recycleModal, #lockedModal, #settingsModal {
+  width: 360px; max-height: 80vh; overflow-y: auto; background: #fff; border-radius: 8px; padding: 12px; box-sizing: border-box;
+}
+
+/* modal text */
+.modalText { white-space: pre-wrap; word-break: break-word; font-size: 14px; margin: 8px 0; max-height: 56vh; overflow-y: auto; }
+
+/* modal actions and small buttons */
+.modalActions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px; }
+.modalActions button { padding: 8px 10px; border-radius: 6px; border: none; cursor: pointer; }
+.button-small { padding: 6px 8px; border-radius: 6px; border: none; cursor: pointer; }
+.btn-restore { background: #4caf50; color: #fff; } .btn-delete { background: #ff6b6b; color: #fff; }
+
+/* locked list styles */
+#lockedList li { display:flex; justify-content: space-between; align-items:center; padding:8px; background:#fff; margin-bottom:8px; border-radius:6px; }
+#lockedList .noteText { max-width: 68%; }
+
+/* settings modal small tweaks */
+#settingsModal input[type="password"] { width: 100%; padding: 8px; margin-top: 8px; box-sizing: border-box; }
+
+/* dark mode */
+.dark-mode { background-color: #1e1e1e; color: #fff; } .dark-mode li { background-color: #2a2a2a; }
+
+
+
+
+

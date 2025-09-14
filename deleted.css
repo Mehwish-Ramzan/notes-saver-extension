@@ -1,0 +1,65 @@
+/* small tweaks specific to deleted page buttons */
+#deletedWrap {
+  max-width: 880px;
+  margin-bottom: 12px;
+}
+#deletedList { padding: 0; margin: 0; }
+#deletedList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  background: #fff;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+#deletedList .noteText {
+  max-width: 70%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+#deletedList .noteActions button {
+  margin-left: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#deletedList .noteActions button:first-child {
+  background: #4caf50;
+  color: #fff;
+}
+#deletedList .noteActions button:first-child:hover {
+  background: #3b9a3b;
+}
+
+#deletedList .noteActions button:last-child {
+  background: #ff6b6b;
+  color: #fff;
+}
+#deletedList .noteActions button:last-child:hover {
+  background: #e04f4f;
+}
+
+#clearDeletedBtn {
+  width: 100%;
+  padding: 8px;
+  background: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#clearDeletedBtn:hover { background: #a21f1f; }
+
+#deletedEmpty {
+  color: #666;
+  text-align: center;
+  padding: 8px;
+}
